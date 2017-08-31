@@ -10,7 +10,8 @@ public class AfternoonExercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		return false;
+		int length = nums.length;
+		return ((nums[0]==6) || (nums[length-1]==6));
 	}
 
 	/*
@@ -21,7 +22,7 @@ public class AfternoonExercises {
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		return false;
+		return ((nums.length>=1 && (nums[0] == nums[(nums.length-1)])));
 	}
 
 	/*
@@ -29,9 +30,10 @@ public class AfternoonExercises {
 	 makePi() → [3, 1, 4]
 	 */
 	public int[] makePi() {
-		return new int[] {};
+		int[] newArrayName = {3,1,4};
+		return newArrayName;
 	}
-
+	
 	/*
 	 Given 2 arrays of ints, a and b, return true if they have the same first element or they have 
 	 the same last element. Both arrays will be length 1 or more.
@@ -40,7 +42,7 @@ public class AfternoonExercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		return false;
+		return ((a[0]== b[0]) || (a[a.length-1]==b[b.length-1]));
 	}
 
 	/*
@@ -50,18 +52,19 @@ public class AfternoonExercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 	public int sum3(int[] nums) {
-		return 0;
+		return ((nums[0]) + (nums[1]) + (nums[2]));
 	}
 
 	/*
 	 Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2, 3} 
 	 yields {2, 3, 1}.
 	 rotateLeft3([1, 2, 3]) → [2, 3, 1]
-	 rotateLeft3([5, 11, 9]) → [11, 9, 5]
+	 rotateLeft3([5, 11, 9]) → [11, 9, 5] 
 	 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return new int[] {};
+		 int[] rotatedArray = {(nums[1]),(nums[2]),(nums[0])};
+		 return rotatedArray;
 	}
 
 	/*
@@ -72,7 +75,8 @@ public class AfternoonExercises {
 	 reverse3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] reverse3(int[] nums) {
-		return new int[] {};
+		 int[] reverseArray = {(nums[2]),(nums[1]),(nums[0])};
+		 return reverseArray;
 	}
 
 	/*
@@ -83,7 +87,13 @@ public class AfternoonExercises {
 	 maxEnd3([2, 11, 3]) → [3, 3, 3]
 	 */
 	public int[] maxEnd3(int[] nums) {
-		return new int[] {};
+		int [] arrayFirstLarger = {(nums[0]), (nums[0]), (nums[0])};  
+		int [] arraySecondLarger = {(nums[2]), (nums[2]), (nums[2])}; 
+		if (nums[0]>=nums[2]){
+			 return arrayFirstLarger;
+		 }else {
+			 return arraySecondLarger;
+		 }
 	}
 
 	/*
@@ -93,9 +103,18 @@ public class AfternoonExercises {
 	 sum2([1, 1]) → 2
 	 sum2([1, 1, 1, 1]) → 2
 	 */
-	public int sum2(int[] nums) {
-		return 0;
-	}
+		public int sum2(int[] nums) {
+			int lessThan2Array = (nums[0]);
+			int moreThan2Array = (nums[0]+nums[1]);
+			
+			if (nums.length<2){
+			return lessThan2Array;
+			} else if (nums.length>=2){
+				return moreThan2Array;
+			} else {
+				return 0;
+			}
+		}
 
 	/*
 	 Given 2 int arrays, a and b, each length 3, return a new array length 2 containing their middle 
@@ -105,7 +124,9 @@ public class AfternoonExercises {
 	 middleWay([5, 2, 9], [1, 4, 5]) → [2, 4]
 	 */
 	public int[] middleWay(int[] a, int[] b) {
-		return new int[] {};
+		int [] middles = {(a[1]), (b[1])}; 
+		return middles;
+		
 	}
 
 	/*
@@ -115,10 +136,17 @@ public class AfternoonExercises {
 	 countEvens([2, 2, 0]) → 3
 	 countEvens([1, 3, 5]) → 0
 	 */
-	public int countEvens(int[] nums) {
-		return 0;
-	}
-
+		public int countEvens(int[] nums) {
+			int counter = 0; 
+			for (int i=0; i<nums.length; i++){
+				if (nums[i]%2 == 0){
+					counter++;
+			}
+			}
+			return counter;
+		}
+		
+	
 	/*
 	 Return the sum of the numbers in the array, returning 0 for an empty array. Except the number 
 	 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do 
@@ -128,9 +156,20 @@ public class AfternoonExercises {
 	 sum13([1, 2, 2, 1, 13]) → 6
 	 */
 	public int sum13(int[] nums) {
-		return 0;
+		int sum = 0;
+		
+		if (nums.length == 0){
+			return 0;
+		}
+		for (int i=0; i<nums.length; i++){
+			if (nums[i]==13){
+				i++;
+			} else 
+				sum = sum + nums[i];
+		}
+		return sum;
 	}
-
+	
 	/*
 	 Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
 	 has22([1, 2, 2]) → true
@@ -138,9 +177,14 @@ public class AfternoonExercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-		return false;
+	    int l=0;
+	    for (l=0; l<nums.length; l++)
+		return ((nums[l]==2) && ((nums[l-1]==2) || (nums[l+1]==2)));
 	}
 	
+/*}
+	for (l=0; l<nums.length; l++){
+		return is22True;
 	/*
 	 Given an array of ints, return true if the array contains no 1's and no 3's.
 	 lucky13([0, 2, 4]) → true
