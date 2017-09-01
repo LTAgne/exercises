@@ -177,9 +177,11 @@ public class AfternoonExercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-	    int l=0;
-	    for (l=0; l<nums.length; l++)
-		return ((nums[l]==2) && ((nums[l-1]==2) || (nums[l+1]==2)));
+	    for (int l=0; l<nums.length-1; l++){
+	    	if ((nums[l]==2) && (nums[l+1]==2)){
+	    		return true;
+	    	}
+	    } return false;
 	}
 	
 /*}
@@ -192,7 +194,13 @@ public class AfternoonExercises {
 	 lucky13([1, 2, 4]) → false
 	 */
 	public boolean lucky13(int[] nums) {
-		return false;
+		for (int i =0; i<nums.length-1; i++){
+			if (nums[i]==1 || nums[i]==3){
+				return false;
+			}
+				
+		}
+		return true;
 	}
 
 	/*
@@ -201,8 +209,17 @@ public class AfternoonExercises {
 	 sum28([2, 3, 2, 2, 4, 2, 2]) → false
 	 sum28([1, 2, 3, 4]) → false
 	 */
-	public boolean sum28(int[] nums) {
-		return false;
-	}
+		public boolean sum28(int[] nums) {
+			int total = 0;
+			for (int i=0; i<nums.length; i++){
+				if (nums[i]==2)
+					total = total + 2;
+				}	
+			if (total ==8){
+				return true;
+		} else {
+		} return false;
+	}}
 
-}
+
+
