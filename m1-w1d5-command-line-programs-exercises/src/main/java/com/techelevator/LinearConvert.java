@@ -26,7 +26,7 @@ public class LinearConvert {
 		System.out.print("Please enter the length: ");
 		
 		double length = input.nextDouble();
-		input.nextLine();  // eats the extra return if someone types enter when submiting nuumber //
+		input.nextLine();  // eats the extra return if someone types enter when submitting nuumber //
 		
 		System.out.print("Is the measurement in (m)eters or (f)eet? ");
 		

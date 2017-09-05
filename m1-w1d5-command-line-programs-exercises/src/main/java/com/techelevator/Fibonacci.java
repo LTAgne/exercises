@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Scanner;
+
 /*
  The Fibonacci numbers are the integers in the following sequence:  
 	0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
@@ -8,7 +10,7 @@ package com.techelevator;
 Write a command line program which prompts the user for an integer value and display the Fibonacci sequence leading up to that number.
 
   
- $ java Fiboncci
+ $ java Fibonacci
  
 Please enter the Fibonacci number: 25
  
@@ -17,7 +19,22 @@ Please enter the Fibonacci number: 25
 public class Fibonacci {
 
 	public static void main(String[] args) {
-
-	}
-
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Please enter the fibonacci number: ");
+		int number = input.nextInt();
+		input.nextLine();
+	}	
+		int fibonacci(){
+			int number = 5;
+			if (number <2){
+				return number; 
+				System.out.print(number);
+			} else {
+				return (fibonacci(number-1)) + (fibonacci(number-2));
+			}
+		} System.out.print("0, 1, " + );
+		
 }
+
