@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.stream.IntStream;
+
 public class Exercises {
 
 	/*
@@ -9,7 +11,8 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		String hello = "Hello";
+		return (hello + " " + name + "!") ;
 	}
 
 	/*
@@ -20,23 +23,25 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+		return (a + b + b + a);
 	}
 
 	/*
-	 The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. In this example,
-	 the "i" tag makes <i> and </i> which surround the word "Yay". Given tag and word strings, create the 
+	The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. In this 	example,
+	 the "i" tag makes <i> and </i> which surround the word "Yay". Given tag and word strings, 	create the 
 	 HTML string with tags around the word, e.g. "<i>Yay</i>".
 	 makeTags("i", "Yay") → "<i>Yay</i>"
 	 makeTags("i", "Hello") → "<i>Hello</i>"
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return null;
+		String starting = "<" + tag + ">";
+		String ending = "</" + tag + ">";
+		return starting + word + ending;
 	}
 
 	/*
-	 Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the 
+	Given an "out" string length 4, such as "<<>>", and a word, return a new string where the 		word is in the 
 	 middle of the out string, e.g. "<<word>>". Note: use str.substring(i, j) to extract the String starting 
 	 at index i and going up to but not including index j.
 	 makeOutWord("<<>>", "Yay") → "<<Yay>>"
@@ -44,22 +49,25 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		String start = out.substring(0, 2);
+		String end = out.substring(2, 4);
+		return start + word + end;
 	}
 
 	/*
-	 Given a string, return a new string made of 3 copies of the last 2 chars of the original string. The string 
+	Given a string, return a new string made of 3 copies of the last 2 chars of the original string. The string 
 	 length will be at least 2.
 	 extraEnd("Hello") → "lololo"
 	 extraEnd("ab") → "ababab"
 	 extraEnd("Hi") → "HiHiHi"
 	 */
 	public String extraEnd(String str) {
-		return null;
+		String lastTwoChar = str.substring(str.length()-2);
+		return lastTwoChar + lastTwoChar + lastTwoChar;
 	}
 
 	/*
-	 Given a string, return the string made of its first two chars, so the String "Hello" yields "He". If the 
+Given a string, return the string made of its first two chars, so the String "Hello" yields "He". If the 
 	 string is shorter than length 2, return whatever there is, so "X" yields "X", and the empty string "" 
 	 yields the empty string "". Note that str.length() returns the length of a string.
 	 firstTwo("Hello") → "He"
@@ -67,7 +75,8 @@ public class Exercises {
 	 firstTwo("ab") → "ab"
 	 */
 	public String firstTwo(String str) {
-		return null;
+		String firstTwoChar = str.substring(0, 2);
+		return firstTwoChar;
 	}
 
 	/*
@@ -77,7 +86,8 @@ public class Exercises {
 	 firstHalf("abcdef") → "abc"
 	 */
 	public String firstHalf(String str) {
-		return null;
+		String half = str.substring(0, (str.length()/2));
+		return half;
 	}
 
 	/*
@@ -88,7 +98,8 @@ public class Exercises {
 	 withoutEnd("coding") → "odin"
 	 */
 	public String withoutEnd(String str) {
-		return null;
+		String croppedString = str.substring(1, (str.length()-1));
+		return croppedString;
 	}
 	
 	/*
@@ -100,7 +111,14 @@ public class Exercises {
 	 comboString("aaa", "b") → "baaab"
 	 */
 	public String comboString(String a, String b) {
-		return null;
+		int aLength = a.length();
+		int bLength = b.length();
+		
+		if ((aLength) > (bLength)) {
+			return b+a+b;
+		} else {
+			return a+b+a;
+		}
 	}
 	
 	/*
@@ -111,7 +129,10 @@ public class Exercises {
 	 nonStart("shotl", "java") → "hotlava"
 	 */
 	public String nonStart(String a, String b) {
-		return null;
+		String aNew = a.substring(1, a.length());
+		String bNew = b.substring(1, b.length());
+		
+		return aNew + bNew;
 	}
 
 	/*
@@ -122,7 +143,10 @@ public class Exercises {
 	 left2("Hi") → "Hi"
 	 */
 	public String left2(String str) {
-		return null;
+		String firstTwo = str.substring(0, 2);
+		String remaining = str.substring(2, str.length());
+		
+		return remaining+firstTwo;
 	}
 
 	/*
@@ -133,9 +157,11 @@ public class Exercises {
 	 right2("Hi") → "Hi"
 	 */
 	public String right2(String str) {
-		return null;
+		String lastTwo = str.substring(str.length()-2, str.length());
+		String remaining = str.substring(0, str.length()-2);
+		
+		return lastTwo+remaining;
 	}
-
 	/*
 	 Given a string, return a string length 1 from its front, unless front is false, in which case 
 	 return a string length 1 from its back. The string will be non-empty.
@@ -144,8 +170,16 @@ public class Exercises {
 	 theEnd("oh", true) → "o"
 	 */
 	public String theEnd(String str, boolean front) {
-		return null;
+		String firstChar = str.substring(0, 1);
+		String lastChar = str.substring((str.length()-1), (str.length()));
+		
+		if (front) {
+			return firstChar;
+		} else {
+			return lastChar;
+		}
 	}
+
 
 	/*
 	 Given a string, return a version without both the first and last char of the string. The string 
@@ -155,7 +189,8 @@ public class Exercises {
 	 withouEnd2("ab") → ""
 	 */
 	public String withouEnd2(String str) {
-		return null;
+		String noFirstOrLast = str.substring(1, str.length());
+		return noFirstOrLast;
 	}
 
 	/*
@@ -166,17 +201,19 @@ public class Exercises {
 	 middleTwo("Practice") → "ct"
 	 */
 	public String middleTwo(String str) {
-		return null;
+		String middleTwo = str.substring(((str.length()/2)-1),(str.length()/2)+1);
+		return middleTwo;
 	}
 
 	/*
-	 Given a string, return true if it ends in "ly".
+Given a string, return true if it ends in "ly".
 	 endsLy("oddly") → true
 	 endsLy("y") → false
 	 endsLy("oddy") → false
 	 */
 	public boolean endsLy(String str) {
-		return false;
+		if (str.endsWith("ly"));
+		return true;
 	}
 
 	/*
@@ -187,7 +224,10 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		return null;
+		String newStringStart = str.substring(0,(n));
+		String newStringEnd = str.substring(str.length()-n);
+				
+		return newStringStart+newStringEnd;
 	}
 
 	/*
@@ -199,7 +239,14 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int index) {
-		return null;
+		String twoCharacters = str.substring(index,(index+2));
+		String firstTwo = str.substring(0,2);
+		
+		if ((index+2)>str.length()){ 
+		return firstTwo;
+		}else {
+			return twoCharacters;
+		}
 	}
 
 	/*
@@ -210,7 +257,8 @@ public class Exercises {
 	 middleThree("solving") → "lvi"
 	 */
 	public String middleThree(String str) {
-		return null;
+		String middleChar = str.substring(((str.length()/2)-1),((str.length()/2)+2));
+		return middleChar;
 	}
 
 	/*
@@ -222,17 +270,24 @@ public class Exercises {
 	 hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
-		return false;
+		
+		return ((str.startsWith("bad", 1)) || (str.startsWith("bad", 0)));
 	}
 
 	/*
-	 Given a string and a non-negative int n, return a larger string that is n copies of the original string.
+Given a string and a non-negative int n, return a larger string that is n copies of the original string.
 	 stringTimes("Hi", 2) → "HiHi"
 	 stringTimes("Hi", 3) → "HiHiHi"
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+		String [] multipleTimes = new String[n];
+		
+			
+		for (int i=0; i < multipleTimes.length; i++){	
+		
+			}return(str);
+		
 	}
 
 	/*

@@ -25,16 +25,29 @@ public class Fibonacci {
 		System.out.print("Please enter the fibonacci number: ");
 		int number = input.nextInt();
 		input.nextLine();
-	}	
-		int fibonacci(){
-			int number = 5;
-			if (number <2){
-				return number; 
-				System.out.print(number);
-			} else {
-				return (fibonacci(number-1)) + (fibonacci(number-2));
-			}
-		} System.out.print("0, 1, " + );
 		
+		String fibonacciResult = "0,1,1";
+		
+		int previous3 = 0; 
+		int previous2 = 1;
+		int previous1 = 1;
+		int calculatedNumber = (previous1 + previous2);	
+		
+		System.out.print(fibonacciResult);
+		
+		for (int i=0; i<number; i++){
+			if (calculatedNumber < number){
+				calculatedNumber = (previous1 + previous2);	
+				previous3 = previous2;
+				previous2 = previous1;
+				previous1 = calculatedNumber;
+			if (calculatedNumber>= number){
+				return;
+			} 
+			}
+			}System.out.print("," + calculatedNumber);
+			
+		}
+	
+	}	
 }
-
