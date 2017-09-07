@@ -22,8 +22,17 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"] 
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		
+		List <String> list = new ArrayList <String> (); //creates new List called list
+		
+		for (int i=0; i<stringArray.length; i++){
+				list.add(stringArray[i]);
+		}
+		return list;
 	}
+	//  for (String i : stringArray){
+	//	list.add(i);
+
 	
 	/*
 	 Given a list of Strings, return an array containing the same Strings in the same order 
@@ -32,7 +41,14 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		
+		String [] newList = new String[stringList.size()];
+		
+		for (int i=0; i<stringList.size(); i++){
+			newList[i] = stringList.get(i);
+		}
+		
+		return newList;
 	}
 	
 	/*
@@ -43,7 +59,14 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		
+		List <String> list = new ArrayList <String> (); //creates new List called list
+		
+		for (int i=0; i<stringArray.length; i++){
+			if (stringArray[i].length()!=4)
+			list.add(stringArray[i]);	
+		
+		}return list;
 	}
 
 
@@ -56,7 +79,20 @@ public class Exercises {
 		-> ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
 	 */
 	public List<String> reverseList(List<String> stringList) {
-		return null;
+		
+		Stack<String> reverse = new Stack<String>();
+		
+		for (String element : stringList){
+			reverse.push(element);
+		}
+		
+		List<String> reverseList = new ArrayList<String>();  
+		
+		while (! reverse.isEmpty()) {  //while stack is not empty
+			  reverseList.add(reverse.pop());
+		} 
+		
+		 return reverseList; 
 	}
 
 	/*
@@ -66,7 +102,14 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		
+		List<Double> doubleList = new ArrayList<Double>();
+		
+		for (double element : intArray){
+			 doubleList.add(element/2);	
+		}
+		
+		return doubleList;
 	}
 	
 	/*
@@ -76,7 +119,14 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		
+		int largest = 0;
+		
+		for (int i : integerList){
+				if (i> largest){
+					largest = i;
+				}			
+		}return largest;
 	}
 	
 	/*
@@ -86,7 +136,15 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]  
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		
+		List<Integer> oddNumbers  = new ArrayList<Integer>();
+		
+		for (int element : integerArray){
+			if (element%2==1){
+				oddNumbers.add(element);	
+			}
+		}
+		return oddNumbers;
 	}
 	
 	/* 
@@ -97,8 +155,16 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		return false;
+		
+		int counter = 0;
+		
+		for (int element : integerList){
+			if (element == intToFind){
+			counter = counter + 1;		
+			}
+		}return (counter>=2);
 	}
+	
 	
 	/*
 	 Given an array of Integers, return a List that contains the same Integers (as Strings). Except any multiple of 3
@@ -113,6 +179,9 @@ public class Exercises {
 	 HINT: To convert an integer x to a string you can call x.toString() in your code (e.g. if x = 1 then x.ToString() equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
+		
+	
+		
 		return null;
 	}
 
@@ -123,17 +192,36 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
-		return null;
+		
+		Set<String> noDuplicatesSet = new HashSet<String>();
+		
+		List<String> listNoDuplicates = new ArrayList<String>();
+		
+		for (String element : stringList){
+			noDuplicatesSet.add(element);
+			}
+		for (String element1 : noDuplicatesSet){
+			listNoDuplicates.add(element1);
+		}
+		
+		return listNoDuplicates;
 	}
 
 	/*
-	 Given two lists of Integers, interleave them beginning with the first element in the first list followed
-	 by the first element of the second. Continue interleaving the elements until all elements have been interwoven.
+	 Given two lists of Integers, interweave them beginning with the first element in the first list followed
+	 by the first element of the second. Continue interweaving the elements until all elements have been interwoven.
 	 Return the new list. If the lists are of unequal lengths, simply attach the remaining elements of the longer
 	 list to the new list before returning it.
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
-	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo){
+		
+//		String [] wovenStringArray = new String[(listOne.size()) + (listTwo.size())];
+//		
+//		List<Integer> wovenList = new ArrayList<Integer>();
+//			
+//		}
+		
 		return null;
 	}
 

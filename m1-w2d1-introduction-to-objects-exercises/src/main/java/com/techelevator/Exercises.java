@@ -275,18 +275,20 @@ Given a string, return true if it ends in "ly".
 	}
 
 	/*
-Given a string and a non-negative int n, return a larger string that is n copies of the original string.
+	Given a string and a non-negative int n, return a larger string that is n copies of 	the original string.
 	 stringTimes("Hi", 2) → "HiHi"
 	 stringTimes("Hi", 3) → "HiHiHi"
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		String [] multipleTimes = new String[n];
+		//String [] multipleTimes = new String[n];
 		
+		String multipleTimes = "";
 			
-		for (int i=0; i < multipleTimes.length; i++){	
-		
-			}return(str);
+		for (int i=0; i < n; i++){	
+		    multipleTimes = multipleTimes + str;
+			
+		}return(multipleTimes);
 		
 	}
 
@@ -298,28 +300,43 @@ Given a string and a non-negative int n, return a larger string that is n copies
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
-	}
+		
+		String result = "";
+		
+		if (str.length()>3){
+			str = str.substring(0,3) ; 
+		}
+		for (int i= 0; i<n; i++){
+			result = result + str; 
+			
+		}return result;
+		
+	} 
 
 	/*
-	 Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
+Count the number of "xx" in the given string. We'll say that overlapping is 	allowed, so "xxx" contains 2 "xx".
 	 countXX("abcxx") → 1
 	 countXX("xxx") → 2
-	 countXX("xxxx") → 
+	 countXX("xxxx") → 3
 	 */
 	public int countXX(String str) {
-		return 0;
+		
+		return 0; 
 	}
 
-	/*
-	 Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
+/*Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
 	 doubleX("axxbb") → true
 	 doubleX("axaxax") → false
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
-		return false;
-	}
+//		
+//		for (int i=0; i<str.length(); i++){
+//			if (str.charAt(i)=="x") && (str.charAt(i+1)==("x")));{
+			 return true;
+			 } 
+	
+
 
 	/*
 	 Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
@@ -328,8 +345,14 @@ Given a string and a non-negative int n, return a larger string that is n copies
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
-	}
+		
+		String result = ""; 
+		
+		for (int i = 0; i<str.length(); i=i+2){
+			result = result + str.substring(i, i+1);
+		} return result; 
+					
+	}	
 
 	/*
 	 Given a non-empty string like "Code" return a string like "CCoCodCode".
@@ -338,8 +361,15 @@ Given a string and a non-negative int n, return a larger string that is n copies
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
-	}
+		
+		String explosionString = "";
+		
+		for (int i=0; i<=str.length(); i++){
+			explosionString = explosionString + str.substring(0, i); 
+		}
+		return explosionString;
+		
+	} 
 
 	/*
 	 Given a string, return the count of the number of times that a substring length 2 appears in the string and 
@@ -370,7 +400,8 @@ Given a string and a non-negative int n, return a larger string that is n copies
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String answer = str.substring(0, 1) + str.substring(4, 5) + str.substring(8, 9);
+		return answer;
 	}
 
 	/*

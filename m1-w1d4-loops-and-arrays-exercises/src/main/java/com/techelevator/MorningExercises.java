@@ -152,26 +152,26 @@ public class MorningExercises {
         }
 
         return (sum == 12);
-    }
+  }}
 
 
-	public int returnCreateArray2 () {
-		int[] createNewArray = new int [9]; //creates an array that is 9 big
-		
-		return newArray [0];
-	
-	}
-
-public int returnCreateArray () {
-	int[] createNewArray = new int [9]; //creates an array that is 9 big
-	
-	return newArray.length; // returns how long the array which is 9 
-
-}
-
-public int returnCreateArray (int sizeOfArray) {
-	int[] createNewArray = new int [sizeOfArary + 5]; //creates an array that is the size of the variable array + 5 
-	
-	return newArray.length;
-
-}
+//	public int returnCreateArray2 () {
+//		int[] createNewArray = new int [9]; //creates an array that is 9 big
+//		
+//		return newArray [0];
+//	
+//	}
+//
+//public int returnCreateArray () {
+//	int[] createNewArray = new int [9]; //creates an array that is 9 big
+//	
+//	return newArray.length; // returns how long the array which is 9 
+//
+//}
+//
+//public int returnCreateArray (int sizeOfArray) {
+//	int[] createNewArray = new int [sizeOfArary + 5]; //creates an array that is the size of the variable array + 5 
+//	
+//	return newArray.length;
+//
+//}
