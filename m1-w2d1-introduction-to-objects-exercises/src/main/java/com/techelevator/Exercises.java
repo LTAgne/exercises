@@ -379,8 +379,45 @@ Count the number of "xx" in the given string. We'll say that overlapping is 	all
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+		
+		if(str.length()<=2){
+			return 0;
+		}
+	
+		String lastTwo = str.substring(str.length()-2);
+		
+		int count = 0;
+		
+		for(int i = 0; i<str.length()-2; i++) {
+			if (str.substring (i, i+2) .equals(lastTwo)) {
+				count++; 	
+			}
+		}
+		
+		return count;
 	}
+		
+//		if(str.length()<=2){
+//			return 0;
+//		}
+//	
+//		String last2 = str.substring(str.length()-2);
+//		
+//		int matchIndex = 0;
+//		
+//		int numOfMatches = 0; 
+//		int foundIndex; 
+//		while((foundIndex = str.indexOf(last2, matchIndex)) != -1) {
+//			if (foundIndex!=str.length()-2){ //this isn't the last match
+//				numOfMatches++;
+//				matchIndex = foundIndex +1; 
+//			}else{
+//			break;
+//		}
+//}
+//		return numOfMatches;
+//}
+//	
 
 	/*
 	 Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end 

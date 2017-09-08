@@ -156,13 +156,16 @@ public class Exercises {
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
 		
-		int counter = 0;
+		boolean isFound = false;
 		
 		for (int element : integerList){
 			if (element == intToFind){
-			counter = counter + 1;		
+				if(isFound){
+					return true; 
+				}
+				isFound = true;
 			}
-		}return (counter>=2);
+		} return false;
 	}
 	
 	
@@ -180,9 +183,22 @@ public class Exercises {
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
 		
-	
+		List<String> resultList = new ArrayList<String>();
 		
-		return null;
+		for (Integer element : integerArray){
+			if (element %15 == 0 ){
+				resultList.add("FizzBuzz");
+			}
+			else if (element % 5 == 0 ){
+				resultList.add("Buzz");
+			}
+			else if (element % 3 == 0 ){
+					resultList.add("Fizz");
+			} else {
+				resultList.add(element.toString());
+			}
+		}	
+		return resultList;
 	}
 
 	/*
@@ -208,21 +224,29 @@ public class Exercises {
 	}
 
 	/*
-	 Given two lists of Integers, interweave them beginning with the first element in the first list followed
-	 by the first element of the second. Continue interweaving the elements until all elements have been interwoven.
+	 Given two lists of Integers, interleave them beginning with the first element in the first list followed
+	 by the first element of the second. Continue interleaving the elements until all elements have been interwoven.
 	 Return the new list. If the lists are of unequal lengths, simply attach the remaining elements of the longer
 	 list to the new list before returning it.
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo){
 		
-//		String [] wovenStringArray = new String[(listOne.size()) + (listTwo.size())];
-//		
-//		List<Integer> wovenList = new ArrayList<Integer>();
-//			
-//		}
+		List<Integer> wovenList = new ArrayList<Integer>();
 		
-		return null;
+		int minLength = Math.min(listOne.size(), listTwo.size());
+		
+		for (int i=0; i<minLength; i++){
+			wovenList.add(listOne.get(i));
+			wovenList.add(listTwo.get(i));
+		}
+		
+		List<Integer> longerList = (listOne.size() > listTwo.size()) ? listOne : listTwo;
+	      for (int i = minLength; i < longerList.size(); i++)
+	      {
+	          wovenList.add(longerList.get(i));
+	      }
+		return wovenList;
 	}
 
 	/*

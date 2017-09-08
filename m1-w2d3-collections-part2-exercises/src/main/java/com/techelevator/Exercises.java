@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Exercises {
@@ -34,8 +35,29 @@ public class Exercises {
 	 * 
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		
+		Map<String, String> animalsAndGroups = new HashMap<String, String>();
+		
+		String unknown = "unknown";
+		
+		animalsAndGroups.put("rhino", "Crash");
+		animalsAndGroups.put("giraffe", "Tower");
+		animalsAndGroups.put("elephant", "Herd");
+		animalsAndGroups.put("lion", "Pride");
+		animalsAndGroups.put("crow", "Murder");
+		animalsAndGroups.put("pigeon", "Kit");
+		animalsAndGroups.put("flamingo", "Pat");
+		animalsAndGroups.put("deer", "Herd");
+		animalsAndGroups.put("dog", "Pack");
+		animalsAndGroups.put("crocodile", "Float");
+		
+		if (animalsAndGroups.containsKey(animalName.toLowerCase())){
+			return animalsAndGroups.get(animalName.toLowerCase());
+		} else {
+			return unknown;
+		}
 	}
+	
 
 	/*
 	 * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -60,8 +82,23 @@ public class Exercises {
 	 * 
 	 */
 	public Double isItOnSale(String itemNumber) {
-		return null;
+		
+		Map<String, Double> discountList = new HashMap<String, Double>();
+	
+		discountList.put("kitchen4001", 0.20);
+		discountList.put("garage070", 0.15);
+		discountList.put("livingroom", 0.10);
+		discountList.put("kitchen6073", 0.40);
+		discountList.put("bedroom3434", 0.60);
+		discountList.put("bath0073", 0.15);
+		
+		if (discountList.containsKey(itemNumber.toLowerCase())){
+			return discountList.get(itemNumber.toLowerCase());
+		} else {
+			return 0.0;
+		}
 	}
+	
 	
 	/*
 	 * Modify and return the given map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
@@ -74,9 +111,35 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		// Figure out what money peter has
+		int petersMoney = peterPaul.get("Peter");  // goes into Map and finds out what Money Peter has
+		
+		// Figure out what money Paul has
+		int paulsMoney = peterPaul.get("Paul");    // goes into Map and finds out what Money Paul has
+		
+		// if Paul has < 1000 and Peter has > 0 then take half of Peters and give it to Paul.  
+		if (paulsMoney<1000 && petersMoney > 0) {
+			int stolenMoney = petersMoney/2 ;
+			paulsMoney = paulsMoney += stolenMoney;
+			petersMoney = petersMoney -= stolenMoney; 
+			
+			peterPaul.put("Paul", paulsMoney);      //updates map
+			peterPaul.put("Peter", petersMoney);    //updates map
+		}
+		
+		return peterPaul;
 	}
 	
+//	
+//	if (paulsMoney<1000 && petersMoney > 0) {
+//		int stolenMoney = petersMoney/2 ; 
+//		
+//		peterPaul.put("Paul", paulsMoney + stolenMoney);      //updates map consolidated 
+//		peterPaul.put("Peter", petersMoney - stolenMoeny);    //updates map
+//	}
+//	
+//	return peterPaul;
+
     /*
 	 * Modify and return the given map as follows: if "Peter" has $50 or more, AND "Paul" has $100 or more,
 	 * then create a new "PeterPaulPartnership" worth a combined contribution of a quarter of each partner's
@@ -87,7 +150,26 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+			
+		int petersMoney = peterPaul.get("Peter");  // goes into Map and finds out what Money Peter has
+				
+		int paulsMoney = peterPaul.get("Paul");   
+		
+		// if Peter has >= 5000 && Paul has >=10000 create new PeterPaulPartnership with 25% of each 
+			if (petersMoney>=5000 && paulsMoney>=10000){
+				int percentOfPeters = (int) (petersMoney *.25);
+				int percentOfPauls = (int) (paulsMoney *.25);
+			
+				petersMoney = petersMoney-percentOfPeters;
+				paulsMoney= paulsMoney - percentOfPauls;
+				
+				peterPaul.put("Peter", petersMoney);
+				peterPaul.put("Paul", paulsMoney);
+					
+				peterPaul.put("PeterPaulPartnership", (percentOfPeters + percentOfPauls));	
+			} 
+		
+		return peterPaul;
 	}
 	
 	/*
@@ -99,7 +181,13 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		
+		Map<String, String> resultString = new HashMap<>();
+		
+		for(String element : words){	
+			resultString.put(element.substring(0, 1), element.substring(element.length()-1, element.length()));
+		}
+		return resultString;
 	}
 	
 	/*
@@ -114,7 +202,22 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		
+		Map<String,Integer> counts = new HashMap<>();
+		
+		for (String word : words){
+			
+			if(counts.containsKey(word)) {
+				int currentCount = counts.get(word);
+				currentCount++; 
+				counts.put(word, currentCount);
+			} else {
+				counts.put(word, 1);
+			}
+			
+		}
+		
+		return counts;
 	}
 	
 	/*
@@ -129,9 +232,41 @@ public class Exercises {
 	 * 
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		
+		Map<Integer, Integer> result = new HashMap<>();
+		
+		// take the int given and make it the key in result map
+		
+//		for (int element : ints){
+//			if(result.containsKey(element)) {
+//				int currentCount = result.get(element);
+//				currentCount++; 
+//				counts.put(element, currentCount);
+//			} else {
+//				result.get(ints, 1);
+//			}
+//			
+//		}
+		
+		return result;
 	}
-	
+//		__________
+//		for (int element : ints){	
+//			if ()
+//			int currentCount = counts.get(word);
+//			currentCount++; 
+//			counts.put(word, currentCount);
+//			result.put(element, value); //value needs to be how many times element shows up
+//		}
+//		
+		// find out how many times that int shows up
+		// and put that number into the value section of the result map
+		
+		// if else statement that is inside of for each loop with counter in if statement 
+		
+//		return null;
+//	}
+//	
 	/*
 	 * Given an array of strings, return a Map<String, Boolean> where each different string is a key and value
 	 * is true only if that string appears 2 or more times in the array.
@@ -175,6 +310,9 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> last2Revisted(String[] words) {
+		
+		
+		
 		return null;
 	}
 }
