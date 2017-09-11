@@ -237,36 +237,18 @@ public class Exercises {
 		
 		// take the int given and make it the key in result map
 		
-//		for (int element : ints){
-//			if(result.containsKey(element)) {
-//				int currentCount = result.get(element);
-//				currentCount++; 
-//				counts.put(element, currentCount);
-//			} else {
-//				result.get(ints, 1);
-//			}
-//			
-//		}
-		
-		return result;
+		for (int element : ints){
+			if(result.containsKey(element)) {
+				int currentCount = result.get(element);
+				currentCount++; 
+				result.put(element, currentCount);
+			
+			} else {
+				result.put(element, 1);
+			}	
+		}return result;	
 	}
-//		__________
-//		for (int element : ints){	
-//			if ()
-//			int currentCount = counts.get(word);
-//			currentCount++; 
-//			counts.put(word, currentCount);
-//			result.put(element, value); //value needs to be how many times element shows up
-//		}
-//		
-		// find out how many times that int shows up
-		// and put that number into the value section of the result map
-		
-		// if else statement that is inside of for each loop with counter in if statement 
-		
-//		return null;
-//	}
-//	
+	
 	/*
 	 * Given an array of strings, return a Map<String, Boolean> where each different string is a key and value
 	 * is true only if that string appears 2 or more times in the array.
@@ -277,8 +259,20 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
+		
+		Map<String,Boolean> wordsResult = new HashMap<>();
 		return null;
 	}
+
+//		for (String element : words){
+//			if(words.equals(element)) {
+//				int currentCount = ;
+//				currentCount++; 
+//				wordMoreThanOnceResult.put(element, true);
+//			} else {
+//				wordMoreThanOnceResult.put(element, false);
+//			}	
+//		}return wordMoreThanOnceResult;	
 	
 	/*
 	 * Given two maps, Map<String, Integer>, merge the two into a new map, Map<String, Integer> where keys in Map2, 
@@ -291,6 +285,9 @@ public class Exercises {
 	 * 
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse, Map<String, Integer> remoteWarehouse) {
+		
+		
+		
 		return null;
 	}
 
