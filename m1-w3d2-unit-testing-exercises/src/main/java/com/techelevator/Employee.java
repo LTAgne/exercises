@@ -81,7 +81,7 @@ public class Employee {
      * Provides the employee a percentage-based raise. Raise cannot be negative. 
      * @param percentage number-based percentage (where 1% = 1.0, 2% = 2.0)
      */
-    public void RaiseSalary(double percentage) {
+    public void raiseSalary(double percentage) {
         double raiseAmount = annualSalary * percentage/100;
         annualSalary += raiseAmount;
     }

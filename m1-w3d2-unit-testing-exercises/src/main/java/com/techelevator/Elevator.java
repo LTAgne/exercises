@@ -5,9 +5,9 @@ public class Elevator {
 	private int shaftNumber;
     private int currentLevel;
     private int numberOfLevels;
-    private boolean doorOpen = true;
+    private boolean doorOpen = false;
     private boolean moving;
-
+    
     /**
      * Creates a new elevator 
      * @param shaftNumber Shaft for the elevator
@@ -62,7 +62,7 @@ public class Elevator {
     /**
      * Opens the elevator door, as long as it is not moving 
      */
-    public void OpenDoor()
+    public void openDoor()
     {
         if (!moving)
         {
@@ -86,26 +86,18 @@ public class Elevator {
      * @param desiredFloor Desired floor to go to
      * @return If the elevator was able to move up
      */
-    public boolean GoUp(int desiredFloor)
-    {
-        currentLevel = desiredFloor;
-
-        if (desiredFloor > currentLevel && desiredFloor <= numberOfLevels && doorOpen)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    public void goUp(int desiredFloor){
+		if ((doorOpen == false) && ((desiredFloor <= numberOfLevels) && desiredFloor> currentLevel)){
+			currentLevel = desiredFloor; 
+		}
+	}
 
     /**
      * Moves the elevator down, as long as the door is closed and desired floor is lower than current but not past 1 
      * @param desiredFloor Floor to go to
      * @return True if possible to move
      */
-    public boolean GoDown(int desiredFloor)
+    public boolean goDown(int desiredFloor)
     {
         if (!doorOpen && desiredFloor < currentLevel && desiredFloor > 0)
         {
