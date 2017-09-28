@@ -106,7 +106,7 @@ JOIN country ON c.country_id = country.country_id
 
 -- 13. The first and last name of the top ten customers ranked by number of rentals 
 -- (#1 should be “ELEANOR HUNT” with 46 rentals, #10 should have 39 rentals)
-
+-- inventory id from rental 
 
 
 -- 14. The first and last name of the top ten customers ranked by dollars spent 
@@ -120,15 +120,14 @@ ORDER BY total_payment DESC LIMIT 10
 -- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store 
 -- (Store 1 has 7928 total rentals and Store 2 has 8121 total rentals) **total results should be the same as these numbers 
 
--- off by 5 need to fix 
-
-SELECT COUNT(rental.inventory_id), s.store_id, a.address, c.city,country.country
+SELECT COUNT(rental.rental_id), s.store_id, a.address, c.city,country.country, SUM(p.amount)/COUNT(rental.rental_id) AS avg_sale
 FROM store s
 JOIN address a ON s.address_id = a.address_id
 JOIN city c ON c.city_id = a.city_id
 JOIN country ON country.country_id = c.country_id
 JOIN inventory i ON i.store_id = s.store_id
 JOIN rental ON rental.inventory_id = i.inventory_id
+JOIN payment p ON p.rental_id = rental.rental_id
 GROUP BY s.store_id, a.address, c.city,country.country
 
 -- 16. The top ten film titles by number of rentals
@@ -144,6 +143,8 @@ GROUP BY s.store_id, a.address, c.city,country.country
 
 -- 19. The top 10 actors ranked by number of rentals of films starring that actor 
 -- (#1 should be “GINA DEGENERES” with 753 rentals and #10 should be “SEAN GUINESS” with 599 rentals)
+
+-- two actors have the same name 
 
 -- 20. The top 5 “Comedy” actors ranked by number of rentals of films in the “Comedy” category starring that actor 
 -- (#1 should have 87 rentals and #5 should have 72 rentals)
