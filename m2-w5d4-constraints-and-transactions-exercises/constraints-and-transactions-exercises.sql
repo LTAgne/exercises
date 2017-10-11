@@ -50,7 +50,7 @@ ROLLBACK;
 -- (5 rows affected)
 BEGIN TRANSACTION 
 
-UPDATE film SET rating = 'G' WHERE film_id = 274 
+UPDATE film SET rating = 'G' WHERE film_id = 274
 UPDATE film SET rating = 'G' WHERE film_id = 494
 UPDATE film SET rating = 'G' WHERE film_id = 714 
 SELECT * FROM film WHERE rating = 'G'
