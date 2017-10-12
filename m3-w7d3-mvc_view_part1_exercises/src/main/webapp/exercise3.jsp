@@ -14,6 +14,10 @@
 		<h1>Exercise 3 - Echo</h1>
 		
 		<ul>
+		<c:set var="word" value="${param.word}" />
+		<c:set var="count" value="${param.count}" />
+		<c:forEach begin="1" end="${param.count}" var="counter">
+			<li style="font-size:${(param.count - counter) + 1}px"> <c:out value="${param.word}"/> </li>
 		<%--
 			Given two query string parameters, "word" and "count":
 			
@@ -24,6 +28,7 @@
 			 
 			See exercise3-echo.png for example output
 		 --%>
+		 </c:forEach>
 		</ul>
 		
 	</body>

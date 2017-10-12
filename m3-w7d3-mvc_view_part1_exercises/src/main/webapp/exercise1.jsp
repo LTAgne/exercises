@@ -26,6 +26,29 @@
 	<body>
 		<h1>Exercise 1 - FizzBuzz</h1>
 		<ul>
+		<c:forEach begin="1" end="100" var="num">
+			<c:choose>
+				<c:when test="${num%3 == 0 && num%5 == 0}">
+					<li style="color:purple; font-size:150%;">FizzBuzz!</li>
+				</c:when>
+			
+				<c:when test="${num%3 == 0}">
+					<li style="color:blue;">Fizz!</li>
+				</c:when>
+				
+				<c:when test="${num%5 == 0}">
+					<li style="color:red;">Buzz!</li>
+				</c:when>
+				
+				<c:otherwise>
+					<li> <c:out value="${num}" /> </li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		
+	 
+	
+				
 			<%--
 				Add a list item (i.e. <li>) containing each of the numbers from 1 to 100.
 				
