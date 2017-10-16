@@ -47,6 +47,7 @@ public class ProductController {
 		products.add(new Product().setAverageRating(4.1).setImageName("toy-horse.jpg").setTopSeller(false).setManufacturer("Amazing Toys").setName("Rocking Horse").setPrice(34.99).setProductId("SKU-3333").setRemainingStock(2).setWeightInLbs(13.0).setDescription("One of Little Tikes' classic items is back! Perfect for small indoor areas!"));
 		products.add(new Product().setAverageRating(5.0).setImageName("toy-snail.jpg").setTopSeller(true).setManufacturer("Slow Toys").setName("Drag-a-long Snail").setPrice(8.99).setProductId("SKU-4567").setRemainingStock(15).setWeightInLbs(2.3).setDescription("Perfect tagalong companion for little ones as they gain confidence in learning and exploring"));
 		products.add(new Product().setAverageRating(4.7).setImageName("toy-tricycle.jpg").setTopSeller(true).setManufacturer("Safe Kidz Toys").setName("My First Trike").setPrice(24.99).setProductId("SKU-5566").setRemainingStock(11).setWeightInLbs(17.0).setDescription("This Tricycle won Parents Choice Classic Award, Parents Guide to Children's Media Award, The National parenting Centers Seal of Approval. A controlled turning radius and low center of gravity make this tricycle easy for little ones to ride. The sturdy steel design and rubber tires make this tricycle durable."));
-        return products;
+        
+		return products;
 	}
 }

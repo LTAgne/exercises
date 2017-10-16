@@ -15,6 +15,15 @@ header {
 	padding: 10px 10px;
 }
 
+.container{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.product-container{
+	flex: 33%;
+}
+
 nav {
 	background-color: #8DC63F;
 	margin-bottom: 20px;
@@ -45,6 +54,10 @@ nav li a:hover {
 	text-decoration: underline;
 }
 
+img {
+	width: 80%;
+}
+
 section {
 	clear: both;
 	display: block;
@@ -56,3 +69,69 @@ section {
 	background-color: #FFF;
 	border-radius: 7px;
 }
+
+tr.shaded {
+	background-color: #e1dde6;
+}
+
+.tile-rating {
+	flex: 1;
+	text-align: left;
+	position: relative;
+	display: inline;
+	align-content: flex-start;
+	vertical-align: bottom;
+}
+
+img.rating {
+	width: 70%;
+}
+
+
+.pricing td {
+	color: red;
+	font-size: 1.1em;
+}
+
+.productRow{
+	display: flex;	
+}
+
+.productImage{ 
+	flex:1;
+	display: inline;
+}
+
+.list {
+	flex: 3;
+	display: inline;
+}
+
+li {
+	list-style-type: none;
+}
+
+.detail-main-container {
+	display: flex;
+}
+
+.detail-image {
+	flex: 1;
+	display: inline;
+}
+
+.detailSummary {
+	flex: 2;
+	text-align: left;
+	padding: 15px;
+}
+
+.smallImage {
+	width: 50%;
+}
+
+.ratingImage {
+	width: 50%;
+	text-align: center;
+}
+

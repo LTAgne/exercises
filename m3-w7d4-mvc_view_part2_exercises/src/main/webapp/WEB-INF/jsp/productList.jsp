@@ -1,28 +1,38 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!DOCTYPE html>
+<c:set var="pageTitle" value="List Layout View"/>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Product List View</title>
-    <link rel="stylesheet" href="css/site.css" />
-</head>
-<body>
-    <header>
-        <h1>MVC Exercises - Views Part 2: Models</h1>        
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-        </ul>
-        
-    </nav>
+<%@ include file="common/header.jspf" %>
+
     <section id="main-content">
 
-       
-
+		<h2>Toy Department</h2>
+    
+       	<div class="productRow">
+       			
+       		<div class="productImage">
+       				<c:forEach items="${products}" var= "product">
+       					<td> <a href="productDetail?productId=${product.productId}" > <img src="img/${product.imageName}" class="profile"/> </a> </td>
+					</c:forEach>
+			</div>	
+			<div class = "list">
+				<div class="individualProduct">
+					<ul>
+					<c:forEach items="${products}" var= "product">
+					<li> <c:out value="${product.name}"/> 
+						<c:if test="${product.topSeller == 'true'}"> BEST SELLER!</c:if>
+    				</li>
+    				<li> by <c:out value="${product.manufacturer}"/> </li>		
+    				<li class="pricing"> $ <c:out value="${product.price}"/> </li>
+					<li><strong>Weight</strong> <c:out value="${product.weightInLbs}"/> lbs</li>
+    				<li class= "ratingImage"> <fmt:formatNumber maxFractionDigits="0" value="${product.averageRating}" var="formattedRating"/>
+					<img src="img/${formattedRating}-star.png" class="tile-rating"/>
+    				</li>
+    				</c:forEach>	
+					</ul>
+				</div>		
+			</div>
+		</div>
     </section>
 </body>
 </html>
