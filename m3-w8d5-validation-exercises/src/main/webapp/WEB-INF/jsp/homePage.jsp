@@ -15,4 +15,11 @@ Phasellus a lacus ultrices, commodo velit ut, gravida mauris. Donec ac neque urn
 condimentum elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu 
 condimentum nunc, at vehicula purus. Fusce euismod nunc sed arcu convallis congue.</p>
 
+<c:url var="login" value="/login"/>
+<p><a href="${login}">Login</a></p>
+
+<c:url var="register" value="/register"/>
+<p><a href="${register}">Ticket Registration</a></p>
+
+
 <%@include file="common/footer.jspf" %>

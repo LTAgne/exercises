@@ -16,7 +16,11 @@
 
         .form-control {
             display: inline-block;
-        }
+        }    
+        .error {
+        	color:red;
+        	}    
+       
     </style>
 </head>
 <body>
