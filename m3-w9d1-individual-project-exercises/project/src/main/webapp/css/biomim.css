@@ -1,0 +1,56 @@
+body {
+    background-color: #585b5a;
+}
+
+.container {
+	display:flex;
+	align-items: center;
+  	justify-content: center;
+}
+
+.answers{
+	flex:1;
+	max-width: 33%
+	
+}
+
+.images{
+	flex:1;
+	margin: 20px;
+	max-width: 33%
+}
+
+.buttonAnswer {
+	font-size: 16px;
+	word-wrap: break-word;
+	border-radius: 10px;
+	width: 90%;
+	padding: 15px;
+	justify-content: center;
+	text-align: center;
+	margin: 10px;
+	white-space: normal;
+	
+	
+}
+
+.wrong {
+	color: red;
+	border-color: red;
+	
+}
+
+h1 {
+	text-align: center;
+	color: white;
+}
+
+.correctAnswer {
+	text-align: center;
+	min-height: 200px;
+	background-color: #BFCC80;
+	padding: 10px;
+	border-radius: 20px;
+	max-width: 80%;
+	margin: 0 auto;
+}

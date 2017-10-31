@@ -35,7 +35,7 @@ public class UserController {
 	public String processRegistration(@Valid @ModelAttribute("Registration") Registration registration, BindingResult result, 
 			RedirectAttributes flash){
 		
-		flash.addFlashAttribute("Register", registration);
+		flash.addFlashAttribute("registration", registration);
 		
 		if(result.hasErrors()){
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "registration", result);
@@ -60,7 +60,7 @@ public class UserController {
 	public String processLogin(@Valid @ModelAttribute Login login, BindingResult result, 
 			RedirectAttributes flash){
 		
-		flash.addFlashAttribute("Login", login);
+		flash.addFlashAttribute("login", login);
 		
 		if(result.hasErrors()){
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "login", result);

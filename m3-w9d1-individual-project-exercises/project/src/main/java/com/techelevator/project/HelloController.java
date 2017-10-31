@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller 
 public class HelloController {
 
-	@RequestMapping("/greeting")
+	@RequestMapping("/")
 	public String displayGreeting() {
-		
 		return "greeting";
 	}
+	
 }
